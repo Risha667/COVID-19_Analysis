@@ -1,5 +1,5 @@
-COVID-19 Data Insights Project
-Table of Contents
+## COVID-19 Data Insights Project
+# Table of Contents
 Project Overview
 Datasets Used
 Data Cleaning
@@ -14,30 +14,30 @@ Visualizations
 Recommendations
 
 --------------------------------------------------------------------------------
-Project Overview
+# Project Overview
 This project utilizes the Johns Hopkins COVID-19 Dataset and additional data 
 sources to analyze COVID-19 trends in infections, vaccinations, and behavioral 
 factors. It involves data cleaning, merging, exploratory analysis, and 
 predictive modeling to derive actionable insights.
 
 --------------------------------------------------------------------------------
-Datasets Used
+# Datasets Used
 COVID Burden, Behaviors, and Testing
 COVID Vaccination Data
 COVID Cases and Deaths
 COVID Case Fatality Ratios
 
 --------------------------------------------------------------------------------
-Data Cleaning
+# Data Cleaning
 
 Columns Removed
-For all dataset, unnecessary or redundant columns were dropped:
+For all datasets, unnecessary or redundant columns were dropped:
 -flag: Had no values.
 -ci_lb, ci_ub: Confidence intervals not relevant for analysis.
 -se: Standard error had no values.
 -update, dataset_id: Metadata not required for analysis.
 
-Cleaning Steps
+# Cleaning Steps
 -Converted the date column into a standard datetime format.
 -Filled missing values in numeric columns with 0 and categorical columns 
 with Unknown.
@@ -45,29 +45,29 @@ with Unknown.
 -Verified consistency of key columns (country_code and date).
 
 --------------------------------------------------------------------------------
-Data Merging
+# Data Merging
 -The cleaned datasets were merged on country_code and date.
 -An outer join ensured no data was lost during merging.
 -The merged dataset contained only the required features:
 Key Columns: date, country_code, estimate_cases, estimate_vax, estimate_bbt.
 
 --------------------------------------------------------------------------------
-Exploratory Data Analysis
+# Exploratory Data Analysis
 Visualizations
 1. Infection Rates Over Time
 Shows how infection rates varied over the pandemic timeline.
-[Image: Infection_Rates_Over_Time.png]
+![Infection Rates Over Time](./Infection_Rates_Over_Time.png)
 
 2. Correlation Matrix
 Explores relationships between infection rates, vaccination rates, and behavioral factors.
-[Image: Correlation_matrix.png]
+![Correlation Matrix](./Correlation_matrix.png)
 
 3. Distribution of Residuals
 Evaluates the residual errors from predictive modeling.
-[Image: Distribution_of_Residuals.png]
+![Distribution of Residuals](./Distribution_of_Residuals.png)
 
 --------------------------------------------------------------------------------
-Predictive Modeling
+# Predictive Modeling
 
 -Model Used: Random Forest Regressor
 Features:
@@ -81,23 +81,23 @@ lag_1, lag_2: Lagged infection rates.
 Mean Squared Error: 3342.8696
 Feature importance plot showed that lagged infection rates had the most 
 predictive power.
-[Image: Feature_importance.png]
+![Feature Importance](./Feature_importance.png)
 
 -Visualizations
 Actual vs Predicted Values
 Scatter plot comparing predicted infection rates with actual rates.
-[Image: Actual_vs_Predicted.png]
+![Actual vs Predicted](./Actual_vs_Predicted.png)
 
 --------------------------------------------------------------------------------
-Recommendations
+# Recommendations
 
-# Public Health Recommendations:
+Public Health Recommendations:
 Focus vaccination campaigns on regions with low coverage to reduce infection 
 rates.
 Reinforce behavioral interventions like mask-wearing and social distancing 
 during outbreaks.
 
-# Modeling Improvements:
+Modeling Improvements:
 Include external factors like population density or healthcare availability to 
 refine predictions.
 Explore advanced time-series models for better forecasting.
